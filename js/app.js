@@ -37,21 +37,58 @@ var hours = [ '6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4p
 var storesArray = [store1.name, store2.name, store3.name, store4.name, store5.name];
 
 // Helper function to create cells by row
-function render ( cellType, content, row ) {
+function render ( cellType, content, rowToAddChildTo ) {
     var cell = document.createElement( cellType );
     cell.innerText = content;
-    row.appendChild( cell );
+    rowToAddChildTo.appendChild( cell );
 }
 
 // Create the Table Head
 function createTableHead () {
     var header = document.getElementById('header-row');
-
+    render( 'th', 'Hours', header );
     for ( var j = 0; j < storesArray.length; j++ ) {
         render( 'th', storesArray[j], header );
     }
 }
 createTableHead();
+
+// var total = 0;
+
+// for (var i = 0; i < hours.length; i++) {
+//   //  var loc = storesArray[i];
+//   //  total += loc.calcCookiesPerHr();
+//   total += store1.cookieNeed[i];
+  
+  
+//     console.log(total);
+
+// }
+
+
+// // Create the Table Footer
+// function createTableFooter () {
+//     var footer = document.getElementById('footer-row');
+
+//     for ( var j = 0; j < cookies.length; j++ ) {
+//         render( 'th', cookies[j], footer );
+//     }
+// }
+// createTableFooter();
+
+// Create the Table Data
+function createTableData () {
+    var body = document.getElementById('table-body');
+    // each row needs a th with the hour
+    // each row needs one td for each store with this.cookieNeed[i]
+
+    for ( var j = 0; j < hours.length; j++ ) {
+        render( 'tr', 'test', body );
+
+    }
+}
+createTableData();
+
 
 // for ( var j = 0; j < storesArray.length; j++ ) {
 
@@ -64,20 +101,7 @@ createTableHead();
 
 //     var ul = document.createElement('ul');
 //     storeSection.appendChild(ul);
-    
-//     var total = 0;
 
-//     for (var i = 0; i < hours.length; i++) {
-//         total += store.calcCookiesPerHr();
-//         var li = document.createElement('li');
-//         li.innerText = hours[i] + ': ' + store.cookieNeed[i] + ' cookies';
-//         ul.appendChild(li);
-//     }
-//     li = document.createElement('li');
-//     li.innerText = 'Total: ' + total + ' cookies';
-//     //  ['Total:', total, 'cookies'].join(' ');     // another way to do the line above
-//     ul.appendChild(li);
-// }
 
 
 // for ( var j = 0; j < stores.length; j++ ) {
@@ -105,63 +129,3 @@ createTableHead();
 //     //  ['Total:', total, 'cookies'].join(' ');     // another way to do the line above
 //     ul.appendChild(li);
 // }
-
-// // PDX Airport store object
-// var store1 = {
-//     id: 1,
-//     name: 'PDX Airport',
-//     storeHours: '6:00 AM - 8:00 PM',
-//     minCust: 23,
-//     maxCust: 65,
-//     avgCookiesPerCust: 6.3,
-//     cookieNeed: [],
-//     calcCookiesPerHr: calcCookiesPerHr,
-// };
-
-// // Pioneer Square store object
-// var store2 = {
-//     id: 2,
-//     name: 'Pioneer Square',
-//     storeHours: '6:00 AM - 8:00 PM',
-//     minCust: 3,
-//     maxCust: 24,
-//     avgCookiesPerCust: 1.2,
-//     cookieNeed: [],
-//     calcCookiesPerHr: calcCookiesPerHr,
-// };
-
-// // Powell's store object
-// var store3 = {
-//     id: 3,
-//     name: 'Powell\'s',
-//     storeHours: '6:00 AM - 8:00 PM',
-//     minCust: 11,
-//     maxCust: 38,
-//     avgCookiesPerCust: 2.3,
-//     cookieNeed: [],
-//     calcCookiesPerHr: calcCookiesPerHr,
-// };
-
-// // St. John's store object
-// var store4 = {
-//     id: 4,
-//     name: 'St. John\'s',
-//     storeHours: '6:00 AM - 8:00 PM',
-//     minCust: 20,
-//     maxCust: 38,
-//     avgCookiesPerCust: 2.3,
-//     cookieNeed: [],
-//     calcCookiesPerHr: calcCookiesPerHr,
-// };
-
-// // Waterfront store object
-// var store5 = {
-//     id: 5,
-//     name: 'Waterfront',
-//     storeHours: '6:00 AM - 8:00 PM',
-//     minCust: 2,
-//     maxCust: 16,
-//     avgCookiesPerCust: 4.6,
-//     cookieNeed: [],
-//     calcCookiesPerHr: calcCookiesPerHr,
-// };
