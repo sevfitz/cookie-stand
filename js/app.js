@@ -9,8 +9,9 @@ var randCustCalc = function () {
 // Calculate the number of cookies needed per hour
 // cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
 var calcCookiesPerHr = function () {
-    var cookies = this.randCustCalc() * this.avgCookiesPerCust;
+    var cookies = Math.round(this.randCustCalc() * this.avgCookiesPerCust);
     this.cookieNeed.push( cookies );
+    return cookies;
 };
 
 // PDX Airport store object
@@ -79,7 +80,7 @@ var store5 = {
 };
 
 var hours = [ '6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
-var stores = [store1, store2];
+var stores = [store1, store2, store3, store4, store5];
 
 for ( var j = 0; j < stores.length; j++ ) {
 
@@ -92,16 +93,17 @@ for ( var j = 0; j < stores.length; j++ ) {
 
     var ul = document.createElement('ul');
     storeSection.appendChild(ul);
+    
+    var total = 0;
+
     for (var i = 0; i < hours.length; i++) {
+        total += store.calcCookiesPerHr();
         var li = document.createElement('li');
-        li.innerText = hours[i];
+        li.innerText = hours[i] + ': ' + store.cookieNeed[i] + ' cookies';
         ul.appendChild(li);
     }
+    li = document.createElement('li');
+    li.innerText = 'Total: ' + total + ' cookies';
+  //  ['Total:', total, 'cookies'].join(' ');
+    ul.appendChild(li);
 }
-
-// For each i, write to the list [i] cookieNeed[i] + ' cookies'
-
-// Write results to the document for the first store
-//var storeList = document.getElementById( 'store-1' );
-//var store1TimeEstSales = createElement( 'li' );
-//store1TimeEstSales.innerText = 
