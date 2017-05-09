@@ -1,15 +1,10 @@
 'use strict';
 
-var randCustCalc = function () {
-    // calculate random number of customers per hour (between the min and max)
-    var randCust = Math.floor(Math.random() * ( this.maxCust - this.minCust ) + this.minCust +1 );
-    return randCust;
-};
-
-// Calculate the number of cookies needed per hour
-// cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
 var calcCookiesPerHr = function () {
-    var cookies = Math.round(this.randCustCalc() * this.avgCookiesPerCust);
+    // calculate random number of customers per hour (between the min and max)
+    // cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
+    var randCust = Math.floor(Math.random() * ( this.maxCust - this.minCust ) + this.minCust +1 );
+    var cookies = Math.round(randCust * this.avgCookiesPerCust);
     this.cookieNeed.push( cookies );
     return cookies;
 };
@@ -24,7 +19,6 @@ var store1 = {
     avgCookiesPerCust: 6.3,
     cookieNeed: [],
     calcCookiesPerHr: calcCookiesPerHr,
-    randCustCalc: randCustCalc
 };
 
 // Pioneer Square store object
@@ -37,7 +31,6 @@ var store2 = {
     avgCookiesPerCust: 1.2,
     cookieNeed: [],
     calcCookiesPerHr: calcCookiesPerHr,
-    randCustCalc: randCustCalc
 };
 
 // Powell's store object
@@ -49,8 +42,7 @@ var store3 = {
     maxCust: 38,
     avgCookiesPerCust: 2.3,
     cookieNeed: [],
-    calcCookiesPerHr,
-    randCustCalc
+    calcCookiesPerHr: calcCookiesPerHr,
 };
 
 // St. John's store object
@@ -63,7 +55,6 @@ var store4 = {
     avgCookiesPerCust: 2.3,
     cookieNeed: [],
     calcCookiesPerHr: calcCookiesPerHr,
-    randCustCalc: randCustCalc
 };
 
 // Waterfront store object
@@ -76,7 +67,6 @@ var store5 = {
     avgCookiesPerCust: 4.6,
     cookieNeed: [],
     calcCookiesPerHr: calcCookiesPerHr,
-    randCustCalc: randCustCalc
 };
 
 var hours = [ '6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
@@ -87,9 +77,9 @@ for ( var j = 0; j < stores.length; j++ ) {
     var store = stores[j];
     var storeSection = document.getElementById('store-' + store.id);
     
-    var h3 = document.createElement('h3');
-    h3.innerText = store.name;
-    storeSection.appendChild(h3);
+    var ellh = document.createElement('lh');
+    ellh.innerText = store.name;
+    storeSection.appendChild(ellh);
 
     var ul = document.createElement('ul');
     storeSection.appendChild(ul);
