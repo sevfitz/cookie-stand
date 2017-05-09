@@ -1,31 +1,47 @@
 'use strict';
 
+var randCustCalc = function () {
+    // calculate random number of customers per hour (between the min and max)
+    var randCust = Math.floor(Math.random() * ( this.maxCust - this.minCust ) + this.minCust +1 );
+    return randCust;
+};
+
+// Calculate the number of cookies needed per hour
+// cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
+var calcCookiesPerHr = function () {
+    var cookies = this.randCustCalc() * this.avgCookiesPerCust;
+    this.cookieNeed.push( cookies );
+};
+
 // PDX Airport store object
 var store1 = {
+    id: 1,
     name: 'PDX Airport',
     storeHours: '6:00 AM - 8:00 PM',
     minCust: 23,
     maxCust: 65,
     avgCookiesPerCust: 6.3,
     cookieNeed: [],
-    calcCookiesPerHr,
-    randCustCalc
+    calcCookiesPerHr: calcCookiesPerHr,
+    randCustCalc: randCustCalc
 };
 
 // Pioneer Square store object
 var store2 = {
+    id: 2,
     name: 'Pioneer Square',
     storeHours: '6:00 AM - 8:00 PM',
     minCust: 3,
     maxCust: 24,
     avgCookiesPerCust: 1.2,
     cookieNeed: [],
-    calcCookiesPerHr,
-    randCustCalc
+    calcCookiesPerHr: calcCookiesPerHr,
+    randCustCalc: randCustCalc
 };
 
 // Powell's store object
 var store3 = {
+    id: 3,
     name: 'Powell\'s',
     storeHours: '6:00 AM - 8:00 PM',
     minCust: 11,
@@ -38,48 +54,54 @@ var store3 = {
 
 // St. John's store object
 var store4 = {
+    id: 4,
     name: 'St. John\'s',
     storeHours: '6:00 AM - 8:00 PM',
     minCust: 20,
     maxCust: 38,
     avgCookiesPerCust: 2.3,
     cookieNeed: [],
-    calcCookiesPerHr,
-    randCustCalc
+    calcCookiesPerHr: calcCookiesPerHr,
+    randCustCalc: randCustCalc
 };
 
 // Waterfront store object
 var store5 = {
+    id: 5,
     name: 'Waterfront',
     storeHours: '6:00 AM - 8:00 PM',
     minCust: 2,
     maxCust: 16,
     avgCookiesPerCust: 4.6,
     cookieNeed: [],
-    calcCookiesPerHr,
-    randCustCalc
+    calcCookiesPerHr: calcCookiesPerHr,
+    randCustCalc: randCustCalc
 };
 
-// Create and populate array of each hour from 8 AM to 6 PM (that's 15)
-var hours = [];
-for ( var i = 6; i < 12; i++ ) {
-    hours += [i + 'am: '];
+var hours = [ '6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
+var stores = [store1, store2];
+
+for ( var j = 0; j < stores.length; j++ ) {
+
+    var store = stores[j];
+    var storeSection = document.getElementById('store-' + store.id);
+    
+    var h3 = document.createElement('h3');
+    h3.innerText = store.name;
+    storeSection.appendChild(h3);
+
+    var ul = document.createElement('ul');
+    storeSection.appendChild(ul);
+    for (var i = 0; i < hours.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = hours[i];
+        ul.appendChild(li);
+    }
 }
-// Add in 12pm since it is annoying me
-hours += ['12pm: '];
-for ( var j = 1; j < 7; j++ ) {
-    hours += [j + 'pm: '];
-}
 
-var randCustCalc = function ( maxCust, minCust ) {
-    // calculate random number of customers per hour (between the min and max)
-    var randCust = Math.floor(Math.random() * ( this.maxCust - this.minCust ) + this.minCust +1 );
-    return randCust;
-};
+// For each i, write to the list [i] cookieNeed[i] + ' cookies'
 
-// Calculate the number of cookies needed per hour
-// cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
-var calcCookiesPerHr = function ( cookieNeed ) {
-    cookieNeed = randCustCalc * this.avgCookiesPerCust;
-    this.cookieNeed.push( cookieNeed );
-};
+// Write results to the document for the first store
+//var storeList = document.getElementById( 'store-1' );
+//var store1TimeEstSales = createElement( 'li' );
+//store1TimeEstSales.innerText = 
