@@ -3,6 +3,8 @@
 // TODO: take functions out since don't need them
 // TODO: combine the thead and tfoot into one function
 
+var storesArray = [];
+
 // Construct the store object
 function Store ( name, minCust, maxCust, avgCookiesPerCust, cookieNeed ) {
     this.name = name;
@@ -12,6 +14,9 @@ function Store ( name, minCust, maxCust, avgCookiesPerCust, cookieNeed ) {
 
     // Array filled from calcCookiesPerHr
     this.cookieNeed = cookieNeed;
+
+    // push each store object into the storesArray when created
+    storesArray.push(this);
 }
 
 var hours = [ '6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
@@ -35,6 +40,30 @@ Store.prototype.calcCookiesPerHr = function () {
     }
 };
 
+// Get the storeform element and add event listener
+var formEl = document.getElementById('storeform');
+formEl.addEventListener('submit', addNewStore);
+
+// Create new store object from the html form input
+function addNewStore() {
+    event.preventDefault();
+
+    // Create variables that hold the values inputted
+    var form = event.target;
+    var storeName = form.storenameform.value;
+    var minCust = form.mincustform.value;
+    var maxCust = form.maxcustform.value;
+    var avgCook = form.avgcookiesform.value;
+
+    var newStore = new Store( storeName, minCust, maxCust, avgCook, [] );
+    storesArray.push(newStore);
+    newStore.calcCookiesPerHr();
+    console.log(newStore);
+    console.log(storesArray);
+}
+
+
+
 // TODO create a for loop later
 store1.calcCookiesPerHr();
 store2.calcCookiesPerHr();
@@ -43,7 +72,7 @@ store4.calcCookiesPerHr();
 store5.calcCookiesPerHr();
 
 // Stores array
-var storesArray = [store1, store2, store3, store4, store5];
+//var storesArray = [store1, store2, store3, store4, store5];
 
 // Helper function to create cells by row
 function render ( cellType, content, rowToAddChildTo ) {
@@ -122,21 +151,3 @@ var totalsByHourArray = [];
     }
     render( 'th', grandTotal, footer );
 })();
-
-var storeEl = document.getElementById('addstore');
-storeEl.addEventListener('submit', addNewStore);
-
-// Create new store object from the html form input
-function addNewStore() {
-    event.preventDefault();
-
-    // Create variables that hold the values inputted
-    var form = event.target;
-    var storeName = form.storenameform.value;
-    var minCust = form.mincustform.value;
-    var maxCust = form.maxcustform.value;
-    var avgCook = form.avgcookiesform.value;
-
-    var newStore = new Store( storeName, minCust, maxCust, avgCook, [] );
-    console.log(newStore);
-}
