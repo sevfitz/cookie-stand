@@ -8,20 +8,22 @@
         <h1>Salmon Cookies Sales Data</h1>
         <div id="container">
             <section id="form-wrapper">
-                <form id="add-store" action="#">
+                <form id="store-form" action="#">
                     <fieldset>
                         <legend>Enter a New Store</legend>
                         <label for="storename-form">Store Name</label>
-                        <input type="text" name="storename-form" value=""></input>
+                        <input type="text" name="storename-form"></input>
 
                         <label for="min-cust-form">Minimum Number of Customers per Hour</label>
-                        <input type="number" name="min-cust-form"></input>
+                        <input type="number" min="0" name="min-cust-form"></input>
 
                         <label for="max-cust-form">Maximum Number of Customers per Hour</label>
-                        <input type="number" name="max-cust-form"></input>
+                        <input type="number" min="0" name="max-cust-form"></input>
 
                         <label for="avg-cookies-form">Average Number of Cookies per Customer</label>
-                        <input type="number" name="avg-cookies-form"></input>
+                        <input type="number" step="0.1" min="0" name="avg-cookies-form"></input>
+
+                        <input type="submit" name="add-store" value="Add Store"></input> 
                     </fieldset>
                 </form>
             </section> <!-- End of form-wrapper -->
