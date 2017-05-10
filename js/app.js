@@ -22,8 +22,6 @@ var store3 = new Store( 'Powell\'s', 11, 38, 2.3, [] );
 var store4 = new Store( 'St. John\'s', 20, 38, 2.3, [] );
 var store5 = new Store( 'Waterfront', 2, 16, 4.6, [] );
 
-Store.prototype.cookieNeed = [];
-
 Store.prototype.storeHours = '6:00 AM - 8:00 PM';
 
 // calculate random number of customers per hour (between the min and max)

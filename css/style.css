@@ -8,3 +8,8 @@ lh {
     font-size: 24px;
     color: darkslategray;
 }
+
+fieldset {
+    display: flex;
+    align-content: vertical;
+}

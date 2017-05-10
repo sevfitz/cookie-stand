@@ -7,18 +7,38 @@
     <body>
         <h1>Salmon Cookies Sales Data</h1>
         <div id="container">
-            <table>
-                <thead>
-                    <tr id="header-row">
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-                <tfoot>
-                    <tr id="footer-row">
-                    </tr>
-                </tfoot>
-            </table>
+            <section id="form-wrapper">
+                <form id="add-store" action="#">
+                    <fieldset>
+                        <legend>Enter a New Store</legend>
+                        <label for="storename-form">Store Name</label>
+                        <input type="text" name="storename-form" value=""></input>
+
+                        <label for="min-cust-form">Minimum Number of Customers per Hour</label>
+                        <input type="number" name="min-cust-form"></input>
+
+                        <label for="max-cust-form">Maximum Number of Customers per Hour</label>
+                        <input type="number" name="max-cust-form"></input>
+
+                        <label for="avg-cookies-form">Average Number of Cookies per Customer</label>
+                        <input type="number" name="avg-cookies-form"></input>
+                    </fieldset>
+                </form>
+            </section> <!-- End of form-wrapper -->
+            <section id="table-wrapper">
+                <table>
+                    <thead>
+                        <tr id="header-row">
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                    <tfoot>
+                        <tr id="footer-row">
+                        </tr>
+                    </tfoot>
+                </table>
+            </section> <!-- End of table-wrapper -->
         </div> <!-- End of container -->
         <script src="js/app.js"></script>
     </body>
