@@ -79,12 +79,14 @@ var total = 0;
 var totalsArray = [];
 
 // Create an array of the store totals
-(function createTotalArray () {
+(function createTotalsArray () {
     for ( var s = 0; s < storesArray.length; s++ ) {
         for ( var t = 0; t < hours.length; t++ ) {
             total += storesArray[s].cookieNeed[t];
+            console.log(total);
         }
-        totalsArray.push( total );
+        totalsArray.push( total );  
+        total = 0;
     }
 })();
 
