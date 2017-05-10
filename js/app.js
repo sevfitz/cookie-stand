@@ -57,6 +57,42 @@ function render ( cellType, content, rowToAddChildTo ) {
     for ( var j = 0; j < storesArray.length; j++ ) {
         render( 'th', storesArray[j].name, header );
     }
+    render( 'th', 'Hourly Totals', header );
+})();
+
+
+// Variables for store totals
+var total = 0;
+var totalsArray = [];
+var grandTotal = 0;
+
+// Create an array of the store totals
+(function createTotalsArray () {
+
+    for ( var s = 0; s < storesArray.length; s++ ) {
+        for ( var t = 0; t < hours.length; t++ ) {
+            total += storesArray[s].cookieNeed[t];
+        }
+        totalsArray.push( total );  
+        grandTotal += total;
+        total = 0;
+    }
+    return grandTotal;
+})();
+
+// Variables for hourly totals
+var totalByHour = 0;
+var totalsByHourArray = [];
+
+// Create an array of totals for all stores by hour
+(function createTotByHourArray () {
+    for ( var t = 0; t < hours.length; t++ ) {
+        for ( var s = 0; s < storesArray.length; s++ ) {
+            totalByHour += storesArray[s].cookieNeed[t];
+        }
+        totalsByHourArray.push( totalByHour );  
+        totalByHour = 0;
+    }
 })();
 
 // Create the Table Data
@@ -71,30 +107,16 @@ function render ( cellType, content, rowToAddChildTo ) {
         for ( var l = 0; l < storesArray.length; l++ ) {
             render('td', storesArray[l].cookieNeed[k], tr );
         }
+        render( 'td', totalsByHourArray[k], tr);
     }
 })();
 
-// Variables for totals
-var total = 0;
-var totalsArray = [];
-
-// Create an array of the store totals
-(function createTotalsArray () {
-    for ( var s = 0; s < storesArray.length; s++ ) {
-        for ( var t = 0; t < hours.length; t++ ) {
-            total += storesArray[s].cookieNeed[t];
-            console.log(total);
-        }
-        totalsArray.push( total );  
-        total = 0;
-    }
-})();
-
-// Create the Table Footer
+// Create the Table Footer and add Grand Total to last column/row
 (function createTableFooter () {
     var footer = document.getElementById('footer-row');
     render( 'th', 'Store Totals: ', footer );
     for ( var f = 0; f < totalsArray.length; f++ ) {
         render( 'th', totalsArray[f], footer );
     }
+    render( 'th', grandTotal, footer );
 })();
