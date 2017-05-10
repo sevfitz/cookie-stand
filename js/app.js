@@ -1,14 +1,5 @@
 'use strict';
 
-// calculate random number of customers per hour (between the min and max)
-// cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
-var calcCookiesPerHr = function () {
-    var randCust = Math.floor(Math.random() * ( this.maxCust - this.minCust ) + this.minCust +1 );
-    var cookies = Math.round(randCust * this.avgCookiesPerCust);
-    this.cookieNeed.push( cookies );
-    return cookies;
-};
-
 // Construct the store object
 function Store ( id, name, minCust, maxCust, avgCookiesPerCust, cookieNeed ) {
     this.id = id;
@@ -30,6 +21,10 @@ var store4 = new Store( 4, 'St. John\'s', 20, 38, 2.3, [] );
 var store5 = new Store( 5, 'Waterfront', 2, 16, 4.6, [] );
 
 Store.prototype.storeHours = '6:00 AM - 8:00 PM';
+
+// calculate random number of customers per hour (between the min and max)
+// cookiesNeeded/hr = (random estimated customers per hour) * (avg # cookies per customer)
+// add the cookies into the cookieNeed array for each store
 Store.prototype.calcCookiesPerHr = function () {
     for ( var h = 0; h < hours.length; h++ ) {
         var randCust = Math.floor(Math.random() * ( this.maxCust - this.minCust ) + this.minCust +1 );
@@ -38,14 +33,14 @@ Store.prototype.calcCookiesPerHr = function () {
     }
 };
 
+// TODO create a for loop later
 store1.calcCookiesPerHr();
 store2.calcCookiesPerHr();
 store3.calcCookiesPerHr();
 store4.calcCookiesPerHr();
 store5.calcCookiesPerHr();
 
-// Hours and Stores arrays to use later
-
+// Stores array
 var storesArray = [store1, store2, store3, store4, store5];
 
 // Helper function to create cells by row
@@ -56,30 +51,16 @@ function render ( cellType, content, rowToAddChildTo ) {
 }
 
 // Create the Table Head
-function createTableHead () {
+(function createTableHead () {
     var header = document.getElementById('header-row');
     render( 'th', 'Hours', header );
     for ( var j = 0; j < storesArray.length; j++ ) {
         render( 'th', storesArray[j].name, header );
     }
-}
-createTableHead();
-
-// var total = 0;
-
-// for (var i = 0; i < hours.length; i++) {
-//   //  var loc = storesArray[i];
-//   //  total += loc.calcCookiesPerHr();
-//   total += store1.cookieNeed[i];
-//     console.log(total);
-
-// }
-
-
-
+})();
 
 // Create the Table Data
-function createTableData () {
+(function createTableData () {
     var body = document.getElementById('table-body');
 
     for ( var k = 0; k < hours.length; k++ ) {
@@ -91,56 +72,27 @@ function createTableData () {
             render('td', storesArray[l].cookieNeed[k], tr );
         }
     }
-}
-createTableData();
-    
-// // Create the Table Footer
-// function createTableFooter () {
-//     var footer = document.getElementById('footer-row');
+})();
 
-//     for ( var j = 0; j < totalsArray.length; j++ ) {
-//         render( 'tr', totalsArray[j], footer );
-//     }
-// }
-// createTableFooter();
+// Variables for totals
+var total = 0;
+var totalsArray = [];
 
+// Create an array of the store totals
+(function createTotalArray () {
+    for ( var s = 0; s < storesArray.length; s++ ) {
+        for ( var t = 0; t < hours.length; t++ ) {
+            total += storesArray[s].cookieNeed[t];
+        }
+        totalsArray.push( total );
+    }
+})();
 
-// for ( var j = 0; j < storesArray.length; j++ ) {
-
-//     var store = stores[j];
-//     var storeSection = document.getElementById('store-' + store.id);
-    
-//     var ellh = document.createElement('lh');
-//     ellh.innerText = store.name;
-//     storeSection.appendChild(ellh);
-
-//     var ul = document.createElement('ul');
-//     storeSection.appendChild(ul);
-
-
-
-// for ( var j = 0; j < storesArray.length; j++ ) {
-
-//     var store = storesArray[j];
-//     var storeSection = document.getElementById('store-' + store.id);
-    
-//     var ellh = document.createElement('lh');
-//     ellh.innerText = store.name;
-//     storeSection.appendChild(ellh);
-
-//     var ul = document.createElement('ul');
-//     storeSection.appendChild(ul);
-    
-//     var total = 0;
-
-//     for (var i = 0; i < hours.length; i++) {
-//         total += store.calcCookiesPerHr();
-//         var li = document.createElement('li');
-//         li.innerText = hours[i] + ': ' + store.cookieNeed[i] + ' cookies';
-//         ul.appendChild(li);
-//     }
-//     li = document.createElement('li');
-//     li.innerText = 'Total: ' + total + ' cookies';
-//     //  ['Total:', total, 'cookies'].join(' ');     // another way to do the line above
-//     ul.appendChild(li);
-// }
+// Create the Table Footer
+(function createTableFooter () {
+    var footer = document.getElementById('footer-row');
+    render( 'th', 'Store Totals: ', footer );
+    for ( var f = 0; f < totalsArray.length; f++ ) {
+        render( 'th', totalsArray[f], footer );
+    }
+})();

@@ -1,4 +1,7 @@
-
+td {
+    width: 100px;
+    text-align: center;
+}
 
 lh {
     font-family: Arial, Helvetica, sans-serif;
