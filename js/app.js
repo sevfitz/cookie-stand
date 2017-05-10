@@ -122,3 +122,21 @@ var totalsByHourArray = [];
     }
     render( 'th', grandTotal, footer );
 })();
+
+var storeEl = document.getElementById('addstore');
+storeEl.addEventListener('submit', addNewStore);
+
+// Create new store object from the html form input
+function addNewStore() {
+    event.preventDefault();
+
+    // Create variables that hold the values inputted
+    var form = event.target;
+    var storeName = form.storenameform.value;
+    var minCust = form.mincustform.value;
+    var maxCust = form.maxcustform.value;
+    var avgCook = form.avgcookiesform.value;
+
+    var newStore = new Store( storeName, minCust, maxCust, avgCook, [] );
+    console.log(newStore);
+}
