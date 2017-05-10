@@ -73,7 +73,7 @@ function addNewStore() {
     drawTable();
 }
 
-// TODO create a for loop later
+// Fill the cookieNeed arrays for five original stores
 store1.calcCookiesPerHr();
 store2.calcCookiesPerHr();
 store3.calcCookiesPerHr();
@@ -96,6 +96,9 @@ function drawTable () {
             render( 'th', storesArray[j].name, header );
         }
         render( 'th', 'Hourly Totals', header );
+
+    /* Calculate store totals, hourly totals, and grand total here so
+    that the numbers will be there when we create the table data */
 
     // Variables for store totals
     var total = 0;
@@ -124,7 +127,8 @@ function drawTable () {
             totalsByHourArray.push( totalByHour );  
             totalByHour = 0;
         }
-
+    /* End of totals calculations */
+    
     // Create the Table Data
         var body = document.getElementById('table-body');
 
