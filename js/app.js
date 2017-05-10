@@ -1,8 +1,10 @@
 'use strict';
 
+// TODO: take functions out since don't need them
+// TODO: combine the thead and tfoot into one function
+
 // Construct the store object
-function Store ( id, name, minCust, maxCust, avgCookiesPerCust, cookieNeed ) {
-    this.id = id;
+function Store ( name, minCust, maxCust, avgCookiesPerCust, cookieNeed ) {
     this.name = name;
     this.minCust = minCust;
     this.maxCust = maxCust;
@@ -14,11 +16,13 @@ function Store ( id, name, minCust, maxCust, avgCookiesPerCust, cookieNeed ) {
 
 var hours = [ '6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 
-var store1 = new Store( 1, 'PDX Airport', 23, 65, 6.3, [] );
-var store2 = new Store( 2, 'Pioneer Square', 3, 24, 1.2, [] );
-var store3 = new Store( 3, 'Powell\'s', 11, 38, 2.3, [] );
-var store4 = new Store( 4, 'St. John\'s', 20, 38, 2.3, [] );
-var store5 = new Store( 5, 'Waterfront', 2, 16, 4.6, [] );
+var store1 = new Store( 'PDX Airport', 23, 65, 6.3, [] );
+var store2 = new Store( 'Pioneer Square', 3, 24, 1.2, [] );
+var store3 = new Store( 'Powell\'s', 11, 38, 2.3, [] );
+var store4 = new Store( 'St. John\'s', 20, 38, 2.3, [] );
+var store5 = new Store( 'Waterfront', 2, 16, 4.6, [] );
+
+Store.prototype.cookieNeed = [];
 
 Store.prototype.storeHours = '6:00 AM - 8:00 PM';
 
