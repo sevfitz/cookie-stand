@@ -55,14 +55,23 @@ function addNewStore() {
     var maxCust = form.maxcustform.value;
     var avgCook = form.avgcookiesform.value;
 
-    var newStore = new Store( storeName, minCust, maxCust, avgCook, [] );
-    storesArray.push(newStore);
+    // Create a new store object from the inputted data
+    var newStore = new Store( storeName, minCust * 1, maxCust * 1, avgCook * 1 , [] );
+
+    // Populate the cookies array for the new store
     newStore.calcCookiesPerHr();
-    console.log(newStore);
-    console.log(storesArray);
+
+    // Clear out all the existing table data by row
+    var theader = document.getElementById('header-row');
+    theader.innerHTML = '';
+    var tbody = document.getElementById('table-body');
+    tbody.innerHTML = '';
+    var tfoot = document.getElementById('footer-row');
+    tfoot.innerHTML = '';
+
+    // Redraw the table with the existing and new store data
+    drawTable();
 }
-
-
 
 // TODO create a for loop later
 store1.calcCookiesPerHr();
@@ -71,9 +80,6 @@ store3.calcCookiesPerHr();
 store4.calcCookiesPerHr();
 store5.calcCookiesPerHr();
 
-// Stores array
-//var storesArray = [store1, store2, store3, store4, store5];
-
 // Helper function to create cells by row
 function render ( cellType, content, rowToAddChildTo ) {
     var cell = document.createElement( cellType );
@@ -81,73 +87,66 @@ function render ( cellType, content, rowToAddChildTo ) {
 	rowToAddChildTo.appendChild( cell );
 }
 
-// Create the Table Head
-(function createTableHead () {
-    var header = document.getElementById('header-row');
-    render( 'th', 'Hours', header );
-    for ( var j = 0; j < storesArray.length; j++ ) {
-        render( 'th', storesArray[j].name, header );
-    }
-    render( 'th', 'Hourly Totals', header );
-})();
+function drawTable () {
 
-
-// Variables for store totals
-var total = 0;
-var totalsArray = [];
-var grandTotal = 0;
-
-// Create an array of the store totals
-(function createTotalsArray () {
-
-    for ( var s = 0; s < storesArray.length; s++ ) {
-        for ( var t = 0; t < hours.length; t++ ) {
-            total += storesArray[s].cookieNeed[t];
+    // Create the Table Head
+        var header = document.getElementById('header-row');
+        render( 'th', 'Hours', header );
+        for ( var j = 0; j < storesArray.length; j++ ) {
+            render( 'th', storesArray[j].name, header );
         }
-        totalsArray.push( total );  
-        grandTotal += total;
-        total = 0;
-    }
-    return grandTotal;
-})();
+        render( 'th', 'Hourly Totals', header );
 
-// Variables for hourly totals
-var totalByHour = 0;
-var totalsByHourArray = [];
+    // Variables for store totals
+    var total = 0;
+    var totalsArray = [];
+    var grandTotal = 0;
 
-// Create an array of totals for all stores by hour
-(function createTotByHourArray () {
-    for ( var t = 0; t < hours.length; t++ ) {
+    // Create an array of the store totals
         for ( var s = 0; s < storesArray.length; s++ ) {
-            totalByHour += storesArray[s].cookieNeed[t];
+            for ( var t = 0; t < hours.length; t++ ) {
+                total += storesArray[s].cookieNeed[t];
+            }
+            totalsArray.push( total );  
+            grandTotal += total;
+            total = 0;
         }
-        totalsByHourArray.push( totalByHour );  
-        totalByHour = 0;
-    }
-})();
 
-// Create the Table Data
-(function createTableData () {
-    var body = document.getElementById('table-body');
+    // Variables for hourly totals
+    var totalByHour = 0;
+    var totalsByHourArray = [];
 
-    for ( var k = 0; k < hours.length; k++ ) {
-        var tr = document.createElement('tr');
-        body.appendChild(tr);
-        render( 'td', hours[k], tr );
-
-        for ( var l = 0; l < storesArray.length; l++ ) {
-            render('td', storesArray[l].cookieNeed[k], tr );
+    // Create an array of totals for all stores by hour
+        for ( var t = 0; t < hours.length; t++ ) {
+            for ( var s = 0; s < storesArray.length; s++ ) {
+                totalByHour += storesArray[s].cookieNeed[t];
+            }
+            totalsByHourArray.push( totalByHour );  
+            totalByHour = 0;
         }
-        render( 'td', totalsByHourArray[k], tr);
-    }
-})();
 
-// Create the Table Footer and add Grand Total to last column/row
-(function createTableFooter () {
-    var footer = document.getElementById('footer-row');
-    render( 'th', 'Store Totals: ', footer );
-    for ( var f = 0; f < totalsArray.length; f++ ) {
-        render( 'th', totalsArray[f], footer );
-    }
-    render( 'th', grandTotal, footer );
-})();
+    // Create the Table Data
+        var body = document.getElementById('table-body');
+
+        for ( var k = 0; k < hours.length; k++ ) {
+            var tr = document.createElement('tr');
+            body.appendChild(tr);
+            render( 'td', hours[k], tr );
+
+            for ( var l = 0; l < storesArray.length; l++ ) {
+                render('td', storesArray[l].cookieNeed[k], tr );
+            }
+            render( 'td', totalsByHourArray[k], tr);
+        }
+
+    // Create the Table Footer and add Grand Total to last column/row
+        var footer = document.getElementById('footer-row');
+        render( 'th', 'Store Totals: ', footer );
+        for ( var f = 0; f < totalsArray.length; f++ ) {
+            render( 'th', totalsArray[f], footer );
+        }
+        render( 'th', grandTotal, footer );
+}
+
+// Draw the initial version of the table
+drawTable();
