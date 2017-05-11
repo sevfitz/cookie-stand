@@ -12,16 +12,16 @@
                     <fieldset>
                         <legend>Enter a New Store</legend>
                         <label for="storenameform">Store Name</label>
-                        <input type="text" name="storenameform"></input>
+                        <input type="text" name="storenameform" required></input>
 
                         <label for="mincustform">Minimum Number of Customers per Hour</label>
-                        <input type="number" min="0" name="mincustform"></input>
+                        <input type="number" min="0" name="mincustform" required></input>
 
                         <label for="maxcustform">Maximum Number of Customers per Hour</label>
-                        <input type="number" min="0" name="maxcustform"></input>
+                        <input type="number" min="0" name="maxcustform" required></input>
 
                         <label for="avgcookiesform">Average Number of Cookies per Customer</label>
-                        <input type="number" step="0.1" min="0" name="avgcookiesform"></input>
+                        <input type="number" step="0.1" min="0" name="avgcookiesform" required></input>
 
                         <input type="submit" name="addstore" value="Add Store"></input> 
                     </fieldset>

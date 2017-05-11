@@ -51,12 +51,20 @@ function addNewStore() {
     // Create variables that hold the values inputted
     var form = event.target;
     var storeName = form.storenameform.value;
-    var minCust = form.mincustform.value;
-    var maxCust = form.maxcustform.value;
-    var avgCook = form.avgcookiesform.value;
+    var minCust = form.mincustform.value * 1;
+    var maxCust = form.maxcustform.value * 1;
+    var avgCook = form.avgcookiesform.value * 1;
+
+    // Reset the form and break out of the funtion if minCust > maxCust
+    if ( minCust > maxCust ) {
+        alert('Reenter your values for min and max customers per hour.');
+        var formEl = document.getElementById('storeform');
+        formEl.reset();
+        return;
+    }
 
     // Create a new store object from the inputted data
-    var newStore = new Store( storeName, minCust * 1, maxCust * 1, avgCook * 1 , [] );
+    var newStore = new Store( storeName, minCust, maxCust, avgCook, [] );
 
     // Populate the cookies array for the new store
     newStore.calcCookiesPerHr();
