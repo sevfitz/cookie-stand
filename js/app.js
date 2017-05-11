@@ -128,8 +128,8 @@ function drawTable () {
     var totalsByHourArray = [];
 
     // Create an array of totals for all stores by hour
-        for ( var t = 0; t < hours.length; t++ ) {
-            for ( var s = 0; s < storesArray.length; s++ ) {
+        for ( t = 0; t < hours.length; t++ ) {
+            for ( s = 0; s < storesArray.length; s++ ) {
                 totalByHour += storesArray[s].cookieNeed[t];
             }
             totalsByHourArray.push( totalByHour );  
