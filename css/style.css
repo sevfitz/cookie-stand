@@ -1,5 +1,12 @@
-td {
-    width: 100px;
+* {
+    font-family: 'Lora', serif;
+}
+/*    font-family: 'Roboto', sans-serif;*/
+
+
+
+th {
+    width: 200px;
     text-align: center;
 }
 
@@ -12,4 +19,28 @@ lh {
 fieldset {
     display: flex;
     align-content: vertical;
+}
+
+form {
+    height: 200px;
+}
+
+#form-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 5vh 0;
+}
+
+#table-wrapper {
+    border: solid 1px black;
+    width: 500px;
+
+}
+
+#container {
+    display: inline-block;
+}
+
+input {
+    margin: 5px 0 10px 0;
 }
