@@ -1,4 +1,107 @@
+/* Styles for all pages */
 
+.headerwrapper {
+    border: solid 5px #B24E27;
+    width: fit-content;
+    max-height: fit-content;
+    position: relative;
+}
+
+
+header {
+    font-size: 10vh;
+    font-family: 'Lora', serif;
+    color: #3F2318;
+    margin: 1vh 3vw;;
+    width: fit-content;
+    height: fit-content;
+}
+
+
+body {
+
+    background-color: #E5C9B5;
+    color: #3F2318;
+    width: 100%;
+    min-width: 500px;
+}
+
+
+
+
+#container {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/* Styles used on Marketing Page only */
+
+#rightsalmon {
+    width: 20vw;
+    transform: scaleX(-1);
+    height: auto;
+    padding: 5px;
+    margin: 0px 0 0 40px;
+}
+
+#leftsalmon {
+    width: 20vw;
+    transform: scaleX(1);
+    max-height: 20vh;
+    padding: 5px;
+    margin: 0px 40px 0 0;
+}
+
+#ourstory {
+    margin: 15px;
+    display: inline-block;
+}
+
+#ourstory h3, #locations h3, #merch h3 {
+    margin: 15px 15px;
+}
+
+#ourstory figure img {
+    width: 300px;
+    margin: 10px;
+}
+
+#ourstory p {
+    width: 90%;
+}
+
+#locations {
+    background-color: #D7C07C;
+    padding: 20px 0px;
+}
+
+#info {
+    background-color: #E4DCD9;
+    border: solid 1px white;
+    width: auto;
+    height: 200px;
+    margin: 50px;
+    padding: 10px;
+}
+
+#imagecontainer figure, #merch figure {
+    display: inline-block;
+}
+
+#imagecontainer img, #merch img {
+    width: 200px;
+}
+
+#hours li, #contact li {
+    list-style-type: none;
+}
+
+/* Sales Data Table and Form */
 
 table {
     background-color: #7D7DA2;
@@ -8,9 +111,8 @@ table {
 
 #form-wrapper {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
     justify-content: center;
-    margin: 0 0 5vh 0;
+    margin: 5vh 0 5vh 0;
 }
 
 #table-wrapper {
@@ -20,15 +122,6 @@ table {
     width: 91%;
 }
 
-#headerwrapper {
-    display: flex;
-}
-
-body {
-    background-color: #E5C9B5;
-    color: #3F2318;
-    width: 100%;
-}
 
 td {
     font-family: Arial, Helvetica, sans-serif;
@@ -62,84 +155,38 @@ lh {
 legend {
     font-size: 24px;
     color: #3F2318;
+    text-align: right;
 }
 
 fieldset {
-    display: flex;
-    margin: 0 0 20px 30px;
-    justify-content: center;
+    margin: 5px 5px 20px 30px;
+    text-align: left;
     background-color: #E4DCD9;
     border: solid 1px white;
     color: #3F2318;
+    display: block;
+    max-width: 400px;
 }
 
 form {
-    height: 200px;
-}
-
-
-
-
-#container {
-    display: inline-block;
-}
-
-input {
-    margin: 5px 0 10px 0;
-}
-
-header {
-    font-size: 10vw;
-    font-family: 'Lora', serif;
-    color: #3F2318;
-    margin: 10px;
-}
-
-tr {
-    margin: 20px;
-}
-
-#header-row {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 5px;
+    height: 150px;
 }
 
 th {
     padding: 10px;
 }
 
-#rightsalmon {
-    width: 30vw;
-    transform: scaleX(-1);
+tr {
+    margin: 20px;
 }
 
-#leftsalmon {
-    width: 30vw;
-    transform: scaleX(1);
+input {
+    display: block;
+    margin: 5px;
 }
 
-#ourstory {
-    display: flex;
-    justify-content: flex-end;
-    margin: 15px;
-}
 
-#ourstory h3 {
-    margin: 15px 15px;
-}
-
-#sidebar {
-    position: fixed;
-    background-color: #E4DCD9;
-    border: solid 1px white;
-    width: 200px;
-    height: 200px;
-    float: right;
-    margin: 15px;
-}
-
-aside img {
-    float: right;
-    width: 300px;
-    margin: 10px;
+#header-row {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px;
 }
