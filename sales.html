@@ -1,32 +1,18 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Salmon Cookies</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lora|Roboto" rel="stylesheet">
     </head>
     <body>
-        <h1>Salmon Cookies Sales Data</h1>
+        <div class="headerwrapper">
+            <header>Salmon Cookies Sales Data</header>
+        </div> <!-- End of headerwrapper -->
         <div id="container">
-            <section id="form-wrapper">
-                <form id="storeform" action="#">
-                    <fieldset>
-                        <legend>Enter a New Store</legend>
-                        <label for="storenameform">Store Name</label>
-                        <input type="text" name="storenameform" required></input>
-
-                        <label for="mincustform">Minimum Number of Customers per Hour</label>
-                        <input type="number" min="0" name="mincustform" required></input>
-
-                        <label for="maxcustform">Maximum Number of Customers per Hour</label>
-                        <input type="number" min="0" name="maxcustform" required></input>
-
-                        <label for="avgcookiesform">Average Number of Cookies per Customer</label>
-                        <input type="number" step="0.1" min="0" name="avgcookiesform" required></input>
-
-                        <input type="submit" name="addstore" value="Add Store"></input> 
-                    </fieldset>
-                </form>
-            </section> <!-- End of form-wrapper -->
             <section id="table-wrapper">
                 <table>
                     <thead>
@@ -41,6 +27,26 @@
                     </tfoot>
                 </table>
             </section> <!-- End of table-wrapper -->
+            <section id="form-wrapper">
+                <form id="storeform" action="#">
+                    <fieldset>
+                        <legend>Enter a New Store</legend>
+                        <label for="storenameform">Store Name</label>
+                        <input type="text" name="storenameform" required></input>
+                        
+                        <label for="mincustform">Minimum Number of Customers per Hour</label>
+                        <input type="number" min="0" name="mincustform" required></input>
+                        
+                        <label for="maxcustform">Maximum Number of Customers per Hour</label>
+                        <input type="number" min="0" name="maxcustform" required></input>
+                        
+                        <label for="avgcookiesform">Average Number of Cookies per Customer</label>
+                        <input type="number" step="0.1" min="0" name="avgcookiesform" required></input>
+
+                        <input type="submit" name="addstore" value="Add Store"></input> 
+                    </fieldset>
+                </form>
+            </section> <!-- End of form-wrapper -->
         </div> <!-- End of container -->
         <script src="js/app.js"></script>
     </body>

@@ -162,3 +162,17 @@ function drawTable () {
 
 // Draw the initial version of the table
 drawTable();
+
+
+// start to combine into one totals function
+// function createTotal( sumsToShowArray, sumOverArray, arrayToFill) {
+//     for ( var s = 0; s < sumsToShowArray.length; s++ ) {
+//             for ( var t = 0; t < sumOverArray.length; t++ ) {
+//                 total += sumsToShowArray[s].cookieNeed[t];
+//             }
+//             totalsArray.push( arrayToFill );  
+//             total = 0;
+//         }
+// }
+//     createTotal(storesArray, hours, totalsArray);
+//     createTotal(hours, storesArray, totalsByHourArray);
