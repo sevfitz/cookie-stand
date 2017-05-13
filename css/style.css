@@ -1,5 +1,23 @@
 /* Styles for all pages */
 
+nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+nav li {
+    list-style: none;
+    font-family: 'Lora';
+    font-size: 1.3rem;
+    display: inline;
+    padding: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+}
+
 .headerwrapper {
     border: solid 5px #B24E27;
     width: fit-content;
@@ -13,16 +31,16 @@ header {
     font-family: 'Lora', serif;
     color: #3F2318;
     margin: 1vh 3vw;;
-    width: fit-content;
+    width: 100%;
     height: fit-content;
+    background-color: #E4DCD9;
 }
 
 
-body {
-
+body, html {
+    margin: 10px 100px;
     background-color: #E5C9B5;
     color: #3F2318;
-    width: 100%;
     min-width: 500px;
 }
 
