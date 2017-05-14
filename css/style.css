@@ -7,51 +7,14 @@
 
 
 
+/**************************** Header and Body Styles */
 
-
-/* Styles for all pages */
-
-/**************************************** Nav Styles */
-nav {
-    display: flex;
-    width: 100%;
-    /*height: 50px;*/
-    flex-wrap: nowrap;
+body, html {
+    margin: 10px 10%;
+    background-color: #E5C9B5;
+    color: #3F2318;
+    min-width: 500px;
 }
-
-nav ul {
-    margin: 2% auto;
-    width: 100%;
-    display: flex;
-    /*flex-direction: row;*/
-    justify-content: center;
-    white-space: nowrap;
-    align-items: center;
-    align-items: stretch;
-}
-
-nav li {
-    list-style: none;
-    font-family: 'Lora';
-    font-size: 1.5rem;
-    /*flex-wrap: nowrap;*/
-    /*flex-flow: row;*/
-    margin: 0;
-    padding: 1rem;
-    align-items: stretch;
-    display: inline-block;
-}
-
-a {
-    text-decoration: none;
-    flex-wrap: nowrap;
-}
-
-nav a:hover {
-    color: #B24E27;
-}
-
-/**************************************** Header Styles */
 
 .headerwrapper {
     border: solid 5px #B24E27;
@@ -82,34 +45,51 @@ header {
 }
 
 
+/**************************************** Nav Styles */
 
-body, html {
-    margin: 10px 10%;
-    background-color: #E5C9B5;
-    color: #3F2318;
-    min-width: 500px;
+nav {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
+nav ul {
+    margin: 2% auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    align-items: center;
+    align-items: stretch;
+}
 
-
-
-#container {
+nav li {
+    list-style: none;
+    font-family: 'Lora';
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 1rem;
+    align-items: stretch;
     display: inline-block;
 }
 
+a {
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
+
+nav a:hover {
+    color: #B24E27;
+}
 
 
+/************************************* Intro/Homepage Styles */
 
-
-
-
-/* Styles used on Marketing Page only */
-
-#intro {
+#intro, #aboutwrapper {
     display: inline-block;
 }
 
-#intro p, #intro figure {
+#intro p, #ourstory p, #intro figure {
     margin: 75px 0 0 0;
 }
 
@@ -128,67 +108,50 @@ h2 {
 }
 
 
+
+#locations {
+    background-color: #E4DCD9;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    position: relative;
+    margin: 0;
+}
+
+/*************************** About Page Styles (Our Story) */
+
+
 #ourstory {
-    display: relative;
-    margin: 15px;
-    display: inline;
+    width: 100%;
     left: 0;
     top: 0;
 }
 
-#ourstory h3, #locations h3, #merch h3 {
-    margin: 15px 15px;
-}
-
 #ourstory figure img {
     width: 300px;
-    margin: 10px;
 }
 
-#ourstory p {
-    width: 90%;
+#ourstory figure {
+    float: left;
+    margin: 0 40px 30px 0px;
+    font-style: italic;
 }
 
-#locations {
-    border: solid 5px #B24E27;
-    width: auto;
-    height: auto;
-    position: relative;
-    background-color: #DAC587;
-    margin: 50px 0;
-}
 
-/***********************************Contact Us Page Styles */
+/*************************** Merch Page Styles (Our Products) */
 
-#info {
-    display: flex;
-    background-color: #E4DCD9;
-    border: solid 1px white;
-    width: auto;
-    height: 200px;
-    margin: 50px;
-    padding: 10px;
-}
-
-#hours li, #contact li {
-    list-style-type: none;
-}
-
-/************************************************/
-
-#imagecontainer figure, #merch figure {
+#locationsimagecontainer figure, #imagecontainer figure, #merch figure {
     display: inline-block;
 }
 
-#imagecontainer {
+#locationsimagecontainer, #imagecontainer figure {
     padding: 40px;
 }
 
-#imagecontainer img, #merch img {
+#locationsimagecontainer img, #imagecontainer img, #merch img {
     height: 200px;
 }
-
-
 
 iframe {
     height: 200px;
@@ -196,7 +159,28 @@ iframe {
 }
 
 
-/* Sales Data Table and Form */
+/*********************************** Contact Us Page Styles */
+
+#info {
+    display: flex;
+    justify-content: space-around;
+    background-color: #E4DCD9;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: auto;
+    height: 300px;
+    margin: 50px;
+    padding: 10px;
+}
+
+#hours li, #contact li {
+    list-style-type: none;
+    margin: 0 0 0 -38px;
+}
+
+
+
+/************************************** Sales Data Table and Form */
 
 table {
     background-color: #7D7DA2;
@@ -217,7 +201,6 @@ table {
     width: 91%;
 }
 
-
 td {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
@@ -228,8 +211,6 @@ td {
     text-align: right;
 }
 
-
-
 thead, tfoot {
     font-size: 20px;
     color: white;
@@ -237,9 +218,6 @@ thead, tfoot {
     text-shadow: 1px -1px 1px black, 1px 2px 1px black;
     text-align: right;
 }
-
-
-
 
 lh {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -279,7 +257,6 @@ input {
     display: block;
     margin: 5px;
 }
-
 
 #header-row {
     font-family: Georgia, 'Times New Roman', Times, serif;
