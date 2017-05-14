@@ -20,9 +20,10 @@ nav a {
 
 .headerwrapper {
     border: solid 5px #B24E27;
-    width: fit-content;
-    max-height: fit-content;
+    width: auto;
+    height: auto;
     position: relative;
+    background-color: #E4DCD9;
 }
 
 
@@ -31,9 +32,8 @@ header {
     font-family: 'Lora', serif;
     color: #3F2318;
     margin: 1vh 3vw;;
-    width: 100%;
+    width: fit-content;
     height: fit-content;
-    background-color: #E4DCD9;
 }
 
 
@@ -75,9 +75,17 @@ body, html {
     margin: 0px 40px 0 0;
 }
 
-#ourstory {
-    margin: 15px;
+#intro figure {
     display: inline-block;
+    height: 100px;
+}
+
+#ourstory {
+    display: relative;
+    margin: 15px;
+    display: inline;
+    left: 0;
+    top: 0;
 }
 
 #ourstory h3, #locations h3, #merch h3 {
@@ -90,12 +98,16 @@ body, html {
 }
 
 #ourstory p {
+
     width: 90%;
 }
 
 #locations {
-    background-color: #D7C07C;
-    padding: 20px 0px;
+    border: solid 5px #B24E27;
+    width: auto;
+    height: auto;
+    position: relative;
+    background-color: #DAC587;
 }
 
 #info {
@@ -109,15 +121,22 @@ body, html {
 
 #imagecontainer figure, #merch figure {
     display: inline-block;
+    clear: both;
 }
 
 #imagecontainer img, #merch img {
-    width: 200px;
+    height: 200px;
 }
 
 #hours li, #contact li {
     list-style-type: none;
 }
+
+iframe {
+    height: 200px;
+    width: 200px;
+}
+
 
 /* Sales Data Table and Form */
 
