@@ -1,20 +1,51 @@
 /************************* TOC ***************************/
-
-
-
+/*              
+                General and Body Styles
+                Header Styles
+                Nav Styles
+                Intro/Homepage Styles
+                About Page Styles (Our Story)
+                Location Styles
+                Merch Page Styles (Our Products)
+                Contact Us Page Styles
+                Footer Styles
+                Sales Data Table and Form Styles
+                                                         */
 /************************* TOC ***************************/
 
 
 
 
-/**************************** Header and Body Styles */
+/**************************** General and Body Styles */
 
 body, html {
     margin: 10px 10%;
     background-color: #E5C9B5;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, #E5C9B5 10px, #E5C9B5 200px),
+    linear-gradient(to bottom, #eee, #E5C9B5);
     color: #3F2318;
     min-width: 500px;
 }
+
+h2 {
+    margin: 30px 0px;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
+
+li {
+    list-style: none;
+}
+
+
+/************************************** Header Styles */
 
 .headerwrapper {
     border: solid 5px #B24E27;
@@ -25,10 +56,10 @@ body, html {
 }
 
 header {
-    font-size: 10vh;
+    font-size: 4.5rem;
     font-family: 'Lora', serif;
     color: #3F2318;
-    margin: 2vh auto;
+    margin: 1% auto;
     padding: 2%;
 }
 
@@ -64,18 +95,12 @@ nav ul {
 }
 
 nav li {
-    list-style: none;
     font-family: 'Lora';
     font-size: 1.5rem;
     margin: 0;
     padding: 1rem;
     align-items: stretch;
     display: inline-block;
-}
-
-a {
-    text-decoration: none;
-    flex-wrap: nowrap;
 }
 
 nav a:hover {
@@ -99,25 +124,37 @@ nav a:hover {
     font-style: italic;
 }
 
-h2 {
-    margin: 30px 0px;
-    position: absolute;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+#intro img {
+    border: solid 1px white;
 }
 
 
 
-#locations {
+#featured {
+    background-color: #E4DCD9;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: auto;
+    height: 350px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+#featured figure, #locations figure, #merch figure {
+    margin: 50px 50px;
+}
+
+#locations, #aboutwrapper, #intro, #merch {
     background-color: #E4DCD9;
     border: solid 1px white;
     border-radius: 5px;
     width: auto;
     height: auto;
-    position: relative;
     margin: 0;
+    padding: 30px;
 }
+
+
 
 /*************************** About Page Styles (Our Story) */
 
@@ -128,8 +165,9 @@ h2 {
     top: 0;
 }
 
-#ourstory figure img {
+#ourstory img {
     width: 300px;
+    border: solid 1px white;
 }
 
 #ourstory figure {
@@ -139,18 +177,15 @@ h2 {
 }
 
 
-/*************************** Merch Page Styles (Our Products) */
+/************************************** Locations Styles */
 
-#locationsimagecontainer figure, #imagecontainer figure, #merch figure {
-    display: inline-block;
-}
-
-#locationsimagecontainer, #imagecontainer figure {
-    padding: 40px;
-}
-
-#locationsimagecontainer img, #imagecontainer img, #merch img {
-    height: 200px;
+#locationsimagecontainer, #imagecontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 30px auto;
 }
 
 iframe {
@@ -158,6 +193,24 @@ iframe {
     width: 200px;
 }
 
+/*************************** Merch Page Styles (Our Products) */
+
+#imagecontainer figure, #merch figure {
+    display: inline-block;
+}
+
+#locationsimagecontainer img, #imagecontainer img, #merch img {
+    height: 200px;
+}
+
+#merch img {
+    margin: 30px 0;
+    border: solid 1px white;
+}
+
+#merch h2 {
+    margin: 30px 0;
+}
 
 /*********************************** Contact Us Page Styles */
 
@@ -178,9 +231,41 @@ iframe {
     margin: 0 0 0 -38px;
 }
 
+/************************************** Footer Styles */
+
+footer {
+    border: solid 5px #B24E27;
+    width: 100%;
+    height: 40px;
+    background-color: #E4DCD9;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    font-family: 'Lora', serif;
+    color: #3F2318;
+    margin: 30px auto;
+}
+
+footer p {
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+#rightchinook {
+    width: 50px;
+    transform: scaleX(-1);
+    padding: 5px;
+}
+
+#leftchinook {
+    width: 50px;
+    transform: scaleX(1);
+    padding: 5px;
+}
 
 
-/************************************** Sales Data Table and Form */
+
+/****************************** Sales Data Table and Form Styles */
 
 table {
     background-color: #7D7DA2;
@@ -198,7 +283,7 @@ table {
     font-family: Arial, Helvetica, sans-serif;
     border: solid 1px white;
     margin: 2% 2%;
-    width: 91%;
+    width: fit-content;
 }
 
 td {
