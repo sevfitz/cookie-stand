@@ -1,107 +1,271 @@
-/* Styles for all pages */
-
-.headerwrapper {
-    border: solid 5px #B24E27;
-    width: fit-content;
-    max-height: fit-content;
-    position: relative;
-}
-
-
-header {
-    font-size: 10vh;
-    font-family: 'Lora', serif;
-    color: #3F2318;
-    margin: 1vh 3vw;;
-    width: fit-content;
-    height: fit-content;
-}
+/************************* TOC ***************************/
+/*              
+                General and Body Styles
+                Header Styles
+                Nav Styles
+                Intro/Homepage Styles
+                About Page Styles (Our Story)
+                Location Styles
+                Merch Page Styles (Our Products)
+                Contact Us Page Styles
+                Footer Styles
+                Sales Data Table and Form Styles
+                                                         */
+/************************* TOC ***************************/
 
 
-body {
 
+
+/**************************** General and Body Styles */
+
+body, html {
+    margin: 10px 10%;
     background-color: #E5C9B5;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, #E5C9B5 10px, #E5C9B5 200px),
+    linear-gradient(to bottom, #eee, #E5C9B5);
     color: #3F2318;
-    width: 100%;
     min-width: 500px;
 }
 
+h2 {
+    margin: 30px 0px;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
 
+a {
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
 
-
-#container {
-    display: inline-block;
+li {
+    list-style: none;
 }
 
 
+/************************************** Header Styles */
 
+.headerwrapper {
+    border: solid 5px #B24E27;
+    width: 100%;
+    height: auto;
+    background-color: #E4DCD9;
+    display: flex;
+}
 
-
-
-
-/* Styles used on Marketing Page only */
+header {
+    font-size: 4.5rem;
+    font-family: 'Lora', serif;
+    color: #3F2318;
+    margin: 1% auto;
+    padding: 2%;
+}
 
 #rightsalmon {
-    width: 20vw;
+    width: 264px;
     transform: scaleX(-1);
-    height: auto;
     padding: 5px;
-    margin: 0px 0 0 40px;
 }
 
 #leftsalmon {
-    width: 20vw;
+    width: 264px;
     transform: scaleX(1);
-    max-height: 20vh;
     padding: 5px;
-    margin: 0px 40px 0 0;
 }
 
-#ourstory {
-    margin: 15px;
+
+/**************************************** Nav Styles */
+
+nav {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+nav ul {
+    margin: 2% auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    align-items: center;
+    align-items: stretch;
+}
+
+nav li {
+    font-family: 'Lora';
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 1rem;
+    align-items: stretch;
     display: inline-block;
 }
 
-#ourstory h3, #locations h3, #merch h3 {
-    margin: 15px 15px;
+nav a:hover {
+    color: #B24E27;
 }
 
-#ourstory figure img {
-    width: 300px;
-    margin: 10px;
+
+/************************************* Intro/Homepage Styles */
+
+#intro, #aboutwrapper {
+    display: inline-block;
 }
 
-#ourstory p {
-    width: 90%;
+#intro p, #ourstory p, #intro figure {
+    margin: 75px 0 0 0;
 }
 
-#locations {
-    background-color: #D7C07C;
-    padding: 20px 0px;
+#intro figure {
+    float: left;
+    margin: 77px 40px 30px 0;
+    font-style: italic;
 }
 
-#info {
+#intro img {
+    border: solid 1px white;
+}
+
+
+
+#featured {
     background-color: #E4DCD9;
     border: solid 1px white;
+    border-radius: 5px;
     width: auto;
-    height: 200px;
-    margin: 50px;
-    padding: 10px;
+    height: 350px;
+    margin: 50px auto;
+    padding: 30px;
 }
+
+#featured figure, #locations figure, #merch figure {
+    margin: 50px 50px;
+}
+
+#locations, #aboutwrapper, #intro, #merch {
+    background-color: #E4DCD9;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 30px;
+}
+
+
+
+/*************************** About Page Styles (Our Story) */
+
+
+#ourstory {
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+#ourstory img {
+    width: 300px;
+    border: solid 1px white;
+}
+
+#ourstory figure {
+    float: left;
+    margin: 0 40px 30px 0px;
+    font-style: italic;
+}
+
+
+/************************************** Locations Styles */
+
+#locationsimagecontainer, #imagecontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 30px auto;
+}
+
+iframe {
+    height: 200px;
+    width: 200px;
+}
+
+/*************************** Merch Page Styles (Our Products) */
 
 #imagecontainer figure, #merch figure {
     display: inline-block;
 }
 
-#imagecontainer img, #merch img {
-    width: 200px;
+#locationsimagecontainer img, #imagecontainer img, #merch img {
+    height: 200px;
+}
+
+#merch img {
+    margin: 30px 0;
+    border: solid 1px white;
+}
+
+#merch h2 {
+    margin: 30px 0;
+}
+
+/*********************************** Contact Us Page Styles */
+
+#info {
+    display: flex;
+    justify-content: space-around;
+    background-color: #E4DCD9;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: auto;
+    height: 300px;
+    margin: 50px;
+    padding: 10px;
 }
 
 #hours li, #contact li {
     list-style-type: none;
+    margin: 0 0 0 -38px;
 }
 
-/* Sales Data Table and Form */
+/************************************** Footer Styles */
+
+footer {
+    border: solid 5px #B24E27;
+    width: 100%;
+    height: 40px;
+    background-color: #E4DCD9;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    font-family: 'Lora', serif;
+    color: #3F2318;
+    margin: 30px auto;
+}
+
+footer p {
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+#rightchinook {
+    width: 50px;
+    transform: scaleX(-1);
+    padding: 5px;
+}
+
+#leftchinook {
+    width: 50px;
+    transform: scaleX(1);
+    padding: 5px;
+}
+
+
+
+/****************************** Sales Data Table and Form Styles */
 
 table {
     background-color: #7D7DA2;
@@ -119,9 +283,8 @@ table {
     font-family: Arial, Helvetica, sans-serif;
     border: solid 1px white;
     margin: 2% 2%;
-    width: 91%;
+    width: fit-content;
 }
-
 
 td {
     font-family: Arial, Helvetica, sans-serif;
@@ -133,8 +296,6 @@ td {
     text-align: right;
 }
 
-
-
 thead, tfoot {
     font-size: 20px;
     color: white;
@@ -142,9 +303,6 @@ thead, tfoot {
     text-shadow: 1px -1px 1px black, 1px 2px 1px black;
     text-align: right;
 }
-
-
-
 
 lh {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -184,7 +342,6 @@ input {
     display: block;
     margin: 5px;
 }
-
 
 #header-row {
     font-family: Georgia, 'Times New Roman', Times, serif;
