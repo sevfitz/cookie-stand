@@ -75,6 +75,24 @@ header {
     padding: 5px;
 }
 
+header img:hover {
+    animation: rotate 2s ease 5s infinite alternate;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(0) scaleX(-1);
+    }
+
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
 
 /**************************************** Nav Styles */
 
